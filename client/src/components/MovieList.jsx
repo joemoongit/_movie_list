@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MovieListEntry from './MovieListEntry.jsx';
 
-var MovieList = ({movies, onWatch, all, watched, toWatch, bak}) => (
+var MovieList = ({movies, onWatch, all, watched, toWatch, bak, describe}) => (
   <div>
     {
       !bak
@@ -16,7 +16,7 @@ var MovieList = ({movies, onWatch, all, watched, toWatch, bak}) => (
       null
     }
     {movies.map((movie, index) =>
-      <MovieListEntry onWatch={onWatch} movie={movie} key={index}/>
+      <MovieListEntry onWatch={onWatch} movie={movie} key={index} describe={describe}/>
     )}
   </div>
 );

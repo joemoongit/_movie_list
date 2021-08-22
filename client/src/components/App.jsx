@@ -22,6 +22,7 @@ class App extends React.Component {
     this.onWatch = this.onWatch.bind(this);
     this.all = this.all.bind(this);
     this.watched = this.watched.bind(this);
+    this.describe = this.describe.bind(this);
   }
 
   onSearch() {
@@ -78,6 +79,10 @@ class App extends React.Component {
 
   }
 
+  describe(movie) {
+    console.log('describe', movie.title);
+  }
+
   render() {
     return (
       <div>
@@ -86,7 +91,7 @@ class App extends React.Component {
           <Search onSearch={this.onSearch} handleInputChange={this.handleInputChange} onBack={this.onBack} bak={this.state.bak}/>
         </nav>
         <div>
-          <MovieList onWatch={this.onWatch} movies={this.state.movies} all={this.all} watched={this.watched} bak={this.state.bak}/>
+          <MovieList onWatch={this.onWatch} movies={this.state.movies} all={this.all} watched={this.watched} bak={this.state.bak} describe={this.describe}/>
         </div>
       </div>
     );
