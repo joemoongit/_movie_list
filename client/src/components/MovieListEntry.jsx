@@ -5,7 +5,7 @@ var MovieListEntry = ({movie, onWatch}) => (
     <div>
       {movie.title}
     </div>
-    <button onClick={() => onWatch()}><span>Watch</span></button>
+    <button onClick={() => onWatch(movie)}><span>Watch</span></button>
   </div>
 );
 
