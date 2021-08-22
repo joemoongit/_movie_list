@@ -2,7 +2,8 @@ import React from 'react';
 
 var Search = ({onSearch, handleInputChange, onBack, bak}) => (
   <div>
-    { bak
+    {
+      bak
       ?
       <button onClick={() => onBack()}><span>Back</span></button>
       :

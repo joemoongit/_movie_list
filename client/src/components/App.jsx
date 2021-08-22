@@ -13,6 +13,12 @@ class App extends React.Component {
       bak: null,
       input: null
     }
+
+    this.onSearch = this.onSearch.bind(this);
+    this.onBack = this.onBack.bind(this);
+    this.onAdd = this.onAdd.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.onWatch = this.onWatch.bind(this);
   }
 
   onSearch() {
@@ -49,11 +55,11 @@ class App extends React.Component {
     return (
       <div>
         <nav>
-          <Add onAdd={this.onAdd.bind(this)} handleInputChange={this.handleInputChange.bind(this)}/>
-          <Search onSearch={this.onSearch.bind(this)} handleInputChange={this.handleInputChange.bind(this)} onBack={this.onBack.bind(this)} bak={this.state.bak}/>
+          <Add onAdd={this.onAdd} handleInputChange={this.handleInputChange}/>
+          <Search onSearch={this.onSearch} handleInputChange={this.handleInputChange} onBack={this.onBack} bak={this.state.bak}/>
         </nav>
         <div>
-          <MovieList onWatch={this.onWatch.bind(this)} movies={this.state.movies}/>
+          <MovieList onWatch={this.onWatch} movies={this.state.movies}/>
         </div>
       </div>
     );
