@@ -86,7 +86,7 @@ class App extends React.Component {
           <Search onSearch={this.onSearch} handleInputChange={this.handleInputChange} onBack={this.onBack} bak={this.state.bak}/>
         </nav>
         <div>
-          <MovieList onWatch={this.onWatch} movies={this.state.movies} all={this.all} watched={this.watched}/>
+          <MovieList onWatch={this.onWatch} movies={this.state.movies} all={this.all} watched={this.watched} bak={this.state.bak}/>
         </div>
       </div>
     );
