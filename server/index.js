@@ -6,4 +6,4 @@ app.use(express.static('client/dist'));
 
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
-})
+});
