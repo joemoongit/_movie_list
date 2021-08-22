@@ -12,6 +12,7 @@ class App extends React.Component {
       movies: movies,
       bak: null,
       input: null,
+      addInput: null,
       watched: null
     }
 
@@ -19,6 +20,7 @@ class App extends React.Component {
     this.onBack = this.onBack.bind(this);
     this.onAdd = this.onAdd.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleAddInputChange = this.handleAddInputChange.bind(this);
     this.onWatch = this.onWatch.bind(this);
     this.all = this.all.bind(this);
     this.watched = this.watched.bind(this);
@@ -41,13 +43,19 @@ class App extends React.Component {
 
   onAdd() {
     this.setState({
-      movies: [...this.state.movies, {title: this.state.input, watched: false}]
+      movies: [...this.state.movies, {title: this.state.addInput, watched: false}]
     });
   }
 
   handleInputChange(input) {
     this.setState({
       input: input
+    });
+  }
+
+  handleAddInputChange(input) {
+    this.setState({
+      addInput: input
     });
   }
 
@@ -87,7 +95,7 @@ class App extends React.Component {
     return (
       <div>
         <nav>
-          <Add onAdd={this.onAdd} handleInputChange={this.handleInputChange}/>
+          <Add onAdd={this.onAdd} handleAddInputChange={this.handleAddInputChange}/>
           <Search onSearch={this.onSearch} handleInputChange={this.handleInputChange} onBack={this.onBack} bak={this.state.bak}/>
         </nav>
         <div>
