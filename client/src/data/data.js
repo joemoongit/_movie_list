@@ -4,6 +4,12 @@ var movies = [
   {title: 'The Grey', watched: false},
   {title: 'Sunshine', watched: false},
   {title: 'Ex Machina', watched: false},
+  {title: 'Toy Story', watched: false},
+  {title: 'Toy Story 3', watched: false},
 ];
 
 export default movies;
+
+import getDocumentation from '../lib/getDocumentation.js';
+
+getDocumentation();

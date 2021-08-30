@@ -2,14 +2,13 @@ import React from 'react';
 import Add from './Add.jsx';
 import Search from './Search.jsx';
 import MovieList from './MovieList.jsx';
-import movies from '../data.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      movies: movies,
+      movies: this.props.movies,
       bak: null,
       input: null,
       addInput: null,
