@@ -5,7 +5,7 @@ $.ajaxPrefilter((settings, _, jqXHR) => {
   jqXHR.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
 });
 
-var getDocumentation = (query, callback) => {
+var getDocumentation = () => {
   var url = `https://api.themoviedb.org/3/movie/76341?api_key=${API_KEY}`;
   var sampleurl = 'https://api.themoviedb.org/3/movie/76341';
   $.get(sampleurl)
