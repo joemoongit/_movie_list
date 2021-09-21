@@ -1,3 +1,6 @@
 body {
+  background-color: rgb(20, 20, 20);
   font-family: sans-serif, arial;
+  color: white;
+  margin: 0;
 }
