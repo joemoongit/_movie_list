@@ -27,7 +27,7 @@ class Search extends React.Component {
     };
     return (
       <ul style={style}>
-        <img style={{ width: '3em' }} src="popcorn.png" alt="" />
+        <img style={{ width: '3em' }} src="images/popcorn.png" alt="" />
         <li style={style2}>
           Home
         </li>

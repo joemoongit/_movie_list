@@ -21,7 +21,7 @@ class MovieLists extends React.Component {
       <div style={style}>
         {
           lists.map((list) => (
-            <MovieList list={list} key={list.id} />
+            <MovieList list={list} key={list.id} id={list.id} />
           ))
         }
       </div>
