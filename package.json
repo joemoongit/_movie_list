@@ -6,8 +6,8 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "start-dev": "nodemon server/index.js",
-    "react-dev": "webpack --config ./webpack.config.js --mode development -w",
+    "start:dev": "nodemon server/index.js",
+    "react:dev": "webpack --config ./webpack.config.js --mode development -w",
     "bundle": "concurrently --kill-others 'npm start' 'npm run react-dev'",
     "start": "node server/index.js",
     "heroku-postbuild": "webpack --mode production --config ./webpack.config.js --progress"
