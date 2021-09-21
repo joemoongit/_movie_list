@@ -17,9 +17,10 @@ class MovieList extends React.Component {
   }
 
   read() {
+    const { list } = this.props;
     const options = {
       method: 'get',
-      url: `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`,
+      url: list.url,
     };
     axios(options)
       .then((response) => {
@@ -31,6 +32,7 @@ class MovieList extends React.Component {
   }
 
   render() {
+    const { list } = this.props;
     const { movies } = this.state;
     const style = {
       // display: 'inline',
@@ -38,10 +40,11 @@ class MovieList extends React.Component {
       // overflowX: 'scroll',
       // overflowY: 'hidden',
       display: 'flex',
+      margin: '0.5em',
     };
     return (
       <div>
-        <h4>Trending today:</h4>
+        <h4 style={{ marginLeft: '0.5em' }}>{list.name}</h4>
         <div style={style}>
           {
             movies.map((movie) => (

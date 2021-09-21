@@ -1,10 +1,8 @@
 import React from 'react';
-import TrendingDay from './lists/trendingday';
-import TrendingWeek from './lists/trendingweek';
-import Popular from './lists/popular';
-import TopRated from './lists/toprated';
+import MovieList from './MovieList';
+import lists from '../../data/data';
 
-class MovieList extends React.Component {
+class MovieLists extends React.Component {
   constructor(props) {
     super(props);
 
@@ -21,13 +19,14 @@ class MovieList extends React.Component {
     };
     return (
       <div style={style}>
-        <TrendingDay />
-        <TrendingWeek />
-        <Popular />
-        <TopRated />
+        {
+          lists.map((list) => (
+            <MovieList list={list} key={list.id} />
+          ))
+        }
       </div>
     );
   }
 }
 
-export default MovieList;
+export default MovieLists;

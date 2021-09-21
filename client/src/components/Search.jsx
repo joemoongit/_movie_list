@@ -14,32 +14,33 @@ class Search extends React.Component {
       top: '0',
       listStyleType: 'none',
       backgroundColor: 'rgb(20,20,20)',
+      padding: '0',
+      margin: '0',
     };
     const style2 = {
       display: 'inline-block',
-      margin: '0.2em',
-      padding: '0.2em',
-    };
-    const style3 = {
-      display: 'inline-block',
-      justifyContent: 'flex-end',
+      margin: '0.15em',
+      padding: '0.15em',
+      position: 'relative',
+      top: '50%',
+      transform: 'translateY(-50%)',
     };
     return (
       <ul style={style}>
+        <img style={{ width: '3em' }} src="popcorn.png" alt="" />
         <li style={style2}>
-          <p>Home</p>
+          Home
         </li>
         <li style={style2}>
-          <p>Watched</p>
+          Watched
         </li>
         <li style={style2}>
-          <p>To Watch</p>
+          To Watch
         </li>
-        <li style={style3}>
+        <li style={style2}>
           <input type="text" />
           <button type="submit">Search</button>
         </li>
-
       </ul>
     );
   }

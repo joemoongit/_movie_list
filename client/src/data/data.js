@@ -1,16 +1,26 @@
-const movies = [
-  { title: 'Mean Girls', watched: false },
-  { title: 'Hackers', watched: false },
-  { title: 'The Grey', watched: false },
-  { title: 'Sunshine', watched: false },
-  { title: 'Ex Machina', watched: false },
-  { title: 'Toy Story', watched: false },
-  { title: 'Toy Story 3', watched: false },
-  { title: 'Toy Story 4', watched: false },
+import { API_KEY } from '../config/config';
+
+const lists = [
+  {
+    id: 1,
+    name: 'Trending today:',
+    url: `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`,
+  },
+  {
+    id: 2,
+    name: 'Trending this week:',
+    url: `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`,
+  },
+  {
+    id: 3,
+    name: 'Popular movies:',
+    url: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`,
+  },
+  {
+    id: 4,
+    name: 'Top rated:',
+    url: `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`,
+  },
 ];
 
-export default movies;
-
-import getDocumentation from '../lib/getDocumentation.js';
-
-getDocumentation();
+export default lists;
