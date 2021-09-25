@@ -34,12 +34,14 @@ const MovieList = ({ list, id }) => {
       scrollLeft: "+=490"
     }, "slow")
   }
+
   const style = {
     display: 'flex',
     margin: '0.5em',
     overflowX: 'hidden',
     zIndex: '0',
   };
+
   const style2 = {
     float: 'left',
     zIndex: '1',
@@ -48,6 +50,7 @@ const MovieList = ({ list, id }) => {
     top: '50%',
     transform: 'translateY(700%)',
   };
+
   const style3 = {
     float: 'right',
     zIndex: '1',
@@ -56,6 +59,7 @@ const MovieList = ({ list, id }) => {
     top: '50%',
     transform: 'translateY(-900%)',
   };
+
   return (
     <div>
       <h4 style={{ marginLeft: '0.5em' }}>{list.name}</h4>
