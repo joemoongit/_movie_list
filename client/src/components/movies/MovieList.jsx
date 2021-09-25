@@ -3,7 +3,7 @@ import axios from 'axios';
 import $ from 'jquery';
 import MovieListEntry from './MovieListEntry';
 
-const MovieList = ({ list, id }) => {
+const MovieList = ({ list }) => {
 
   const [ movies, setMovies ] = useState([]);
 
@@ -64,15 +64,15 @@ const MovieList = ({ list, id }) => {
     <div>
       <h4 style={{ marginLeft: '0.5em' }}>{list.name}</h4>
       <div>
-        <img onClick={() => scrollLeft(id)} style={style2} src="./images/left.png" alt="" />
-        <div id={`content${id}`} style={style}>
+        <img onClick={() => scrollLeft(list.id)} style={style2} src="./images/left.png" alt="" />
+        <div id={`content${list.id}`} style={style}>
           {
             movies.map((movie) => (
               <MovieListEntry movie={movie} key={movie.id} />
             ))
           }
         </div>
-        <img onClick={() => scrollRight(id)} style={style3} src="./images/right.png" alt="" />
+        <img onClick={() => scrollRight(list.id)} style={style3} src="./images/right.png" alt="" />
       </div>
     </div>
   );

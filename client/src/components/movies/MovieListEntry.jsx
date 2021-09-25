@@ -1,21 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const MovieListEntry = ({movie, onWatch, describe}) => {
+const MovieListEntry = ({ movie }) => {
+  const [ hover, setHover ] = useState(false);
+
   const style = {
     float: 'left',
     padding: '0.1em',
   };
-  const style2 = {
-    // display: 'flex',
+
+  const styleImg = {
     width: '10em',
+    filter: hover ? 'contrast(80%)' : 'contrast(100%)',
+    opacity: hover ? '0.7' : '1.0',
   };
+
+  const onHover = () => {
+    setHover(!hover);
+  };
+
+  const onClick = () => {
+  };
+
   return (
     <div style={style}>
-      <div onClick={() => describe(movie)}>
-        <img style={style2} src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
-        {/* {movie.title} */}
+      <div
+        onClick={onClick}
+        onMouseEnter={onHover}
+        onMouseLeave={onHover}>
+        <img style={styleImg} src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
       </div>
-      {/* <button onClick={() => onWatch(movie)}><span>Watch</span></button> */}
     </div>
   );
 };
