@@ -4,10 +4,6 @@ import { SearchContext, MenuContext } from '../Context';
 import lists from '../../data/data';
 import tvlists from '../../data/datatv';
 
-if (!process.env.url) {
-  import { LOCAL } from '../../config/config';
-}
-
 const MovieLists = ({ set }) => {
   const query = useContext(SearchContext);
   const { watched, watch, rec, sim, movie, tv, } = useContext(MenuContext);
@@ -23,7 +19,7 @@ const MovieLists = ({ set }) => {
           <MovieList list={{
             id: '100',
             name: `Recommendations for ${movie.name}:`,
-            url: `${process.env.url || LOCAL}/tv/rec/${movie.id}`,
+            url: `https://joesmovielist.herokuapp.com/tv/rec/${movie.id}`,
           }}
           set={set} />
         }
@@ -32,7 +28,7 @@ const MovieLists = ({ set }) => {
           <MovieList list={{
             id: '101',
             name: `Similar to ${movie.name}:`,
-            url: `${process.env.url || LOCAL}/tv/sim/${movie.id}`,
+            url: `https://joesmovielist.herokuapp.com/tv/sim/${movie.id}`,
           }}
           set={set} />
         }
@@ -41,7 +37,7 @@ const MovieLists = ({ set }) => {
           <MovieList list={{
             id: '0',
             name: 'Search Results:',
-            url: `${process.env.url || LOCAL}/tv/search?query=${query}`,
+            url: `https://joesmovielist.herokuapp.com/tv/search?query=${query}`,
           }}
           set={set} />
         }
@@ -74,7 +70,7 @@ const MovieLists = ({ set }) => {
           <MovieList list={{
             id: '100',
             name: `Recommendations for ${movie.title}:`,
-            url: `${process.env.url || LOCAL}/movies/rec/${movie.id}`,
+            url: `https://joesmovielist.herokuapp.com/movies/rec/${movie.id}`,
           }}
           set={set} />
         }
@@ -83,7 +79,7 @@ const MovieLists = ({ set }) => {
           <MovieList list={{
             id: '101',
             name: `Similar to ${movie.title}:`,
-            url: `${process.env.url || LOCAL}/movies/sim/${movie.id}`,
+            url: `https://joesmovielist.herokuapp.com/movies/sim/${movie.id}`,
           }}
           set={set} />
         }
@@ -92,7 +88,7 @@ const MovieLists = ({ set }) => {
           <MovieList list={{
             id: '0',
             name: 'Search Results:',
-            url: `${process.env.url || LOCAL}/movies/search?query=${query}`,
+            url: `https://joesmovielist.herokuapp.com/movies/search?query=${query}`,
           }}
           set={set} />
         }
