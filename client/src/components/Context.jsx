@@ -9,8 +9,7 @@ export const MenuContext = createContext({
   watch: false,
   rec: false,
   sim: false,
+  movie: {},
+  tv: false,
 });
 
-export const MovieContext = createContext({
-  movie: {},
-});

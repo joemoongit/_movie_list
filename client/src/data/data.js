@@ -1,4 +1,4 @@
-const lists = [
+export const lists = [
   {
     id: 1,
     name: 'Trending today:',

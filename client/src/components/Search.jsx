@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import MovieLists from './movies/MovieLists';
-import { SearchContext, MenuContext, MovieContext } from './Context.jsx';
+import { SearchContext, MenuContext } from './Context.jsx';
 
 const Search = () => {
   const [ query, setQuery ] = useState('');
@@ -10,6 +10,7 @@ const Search = () => {
   const [ recList, setRecList ] = useState(false);
   const [ simList, setSimList ] = useState(false);
   const [ movie, setMovie ] = useState({});
+  const [ tv, setTv ] = useState(false);
 
   const toggleOff = () => {
     setWatchedList(false);
@@ -39,6 +40,10 @@ const Search = () => {
     setMovie(movie);
   }
 
+  const setTV = (bool) => {
+    setTv(bool);
+  }
+
   const style = {
     position: 'sticky',
     top: '0',
@@ -54,6 +59,16 @@ const Search = () => {
   const style2 = {
     display: 'inline-block',
     float: 'left',
+    margin: '0.5em',
+    padding: '0.15em',
+    position: 'relative',
+    top: '50%',
+    transform: 'translateY(-50%)',
+  };
+
+  const style3 = {
+    display: 'inline-block',
+    float: 'right',
     margin: '0.5em',
     padding: '0.15em',
     position: 'relative',
@@ -104,19 +119,25 @@ const Search = () => {
               setQuery(text);
             }} value="Search" />
         </li>
+        <li style={style3} onClick={() => setTV(false)} >
+          Movies
+        </li>
+        <li style={style3} onClick={() => setTV(true)} >
+          TV Shows
+        </li>
       </ul>
-      <MovieContext.Provider value={movie}>
         <MenuContext.Provider value={{
           watched: watchedList,
           watch: watchList,
           rec: recList,
           sim: simList,
+          movie: movie,
+          tv: tv,
         }}>
           <SearchContext.Provider value={query}>
             <MovieLists set={set} />
           </SearchContext.Provider>
         </MenuContext.Provider>
-      </MovieContext.Provider>
     </div>
   );
 }
