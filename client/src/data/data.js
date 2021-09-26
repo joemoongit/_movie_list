@@ -1,33 +1,35 @@
+import { LOCAL } from '../config/config';
+
 export const lists = [
   {
     id: 1,
     name: 'Trending today:',
-    url: `https://api.themoviedb.org/3/trending/movie/day?api_key=ddf7d5d81b6abe118e7acc02334c1619`,
+    url: `${process.env.url || LOCAL}/movies/today`,
   },
   {
     id: 2,
     name: 'Trending this week:',
-    url: `https://api.themoviedb.org/3/trending/movie/week?api_key=ddf7d5d81b6abe118e7acc02334c1619`,
+    url: `${process.env.url || LOCAL}/movies/week`,
   },
   {
     id: 3,
     name: 'Popular movies:',
-    url: `https://api.themoviedb.org/3/movie/popular?api_key=ddf7d5d81b6abe118e7acc02334c1619&language=en-US&page=1`,
+    url: `${process.env.url || LOCAL}/movies/popular`,
   },
   {
     id: 4,
     name: 'Top rated:',
-    url: `https://api.themoviedb.org/3/movie/top_rated?api_key=ddf7d5d81b6abe118e7acc02334c1619&language=en-US&page=1`,
+    url: `${process.env.url || LOCAL}/movies/top`,
   },
   {
     id: 5,
     name: 'Now playing:',
-    url: `https://api.themoviedb.org/3/movie/now_playing?api_key=ddf7d5d81b6abe118e7acc02334c1619&language=en-US&page=1`,
+    url: `${process.env.url || LOCAL}/movies/now`,
   },
   {
     id: 6,
     name: 'Upcoming:',
-    url: `https://api.themoviedb.org/3/movie/upcoming?api_key=ddf7d5d81b6abe118e7acc02334c1619&language=en-US&page=1`,
+    url: `${process.env.url || LOCAL}/movies/upcoming`,
   },
 ];
 

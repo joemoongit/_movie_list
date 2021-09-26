@@ -13,7 +13,7 @@ const MovieList = ({ list, set }) => {
       url: list.url,
     };
     axios(options)
-      .then(response => setMovies(response.data.results))
+      .then(response => setMovies(response.data))
       .catch(err => console.error(err));
   };
 
