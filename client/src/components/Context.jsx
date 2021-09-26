@@ -4,7 +4,13 @@ export const SearchContext = createContext({
   query: '',
 });
 
-export const WatchContext = createContext({
+export const MenuContext = createContext({
   watched: false,
   watch: false,
+  rec: false,
+  sim: false,
+});
+
+export const MovieContext = createContext({
+  movie: {},
 });

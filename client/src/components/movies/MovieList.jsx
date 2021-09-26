@@ -3,7 +3,7 @@ import axios from 'axios';
 import $ from 'jquery';
 import MovieListEntry from './MovieListEntry';
 
-const MovieList = ({ list }) => {
+const MovieList = ({ list, set }) => {
 
   const [ movies, setMovies ] = useState([]);
 
@@ -68,7 +68,7 @@ const MovieList = ({ list }) => {
         <div id={`content${list.id}`} style={style}>
           {
             movies.map((movie) => (
-              <MovieListEntry movie={movie} key={movie.id} />
+              <MovieListEntry movie={movie} key={movie.id} set={set} />
             ))
           }
         </div>

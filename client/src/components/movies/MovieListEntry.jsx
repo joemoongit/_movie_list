@@ -1,17 +1,26 @@
 import React, { useState } from 'react';
 
-const MovieListEntry = ({ movie }) => {
+const MovieListEntry = ({ movie, set }) => {
   const [ hover, setHover ] = useState(false);
+  // const [ buttons, setButtons ] = useState(false);
 
   const style = {
     float: 'left',
     padding: '0.1em',
+    position: 'relative',
   };
 
   const styleImg = {
     width: '10em',
     filter: hover ? 'contrast(80%)' : 'contrast(100%)',
     opacity: hover ? '0.7' : '1.0',
+    position: 'relative',
+  };
+
+  const styleButton = {
+    position: 'absolute',
+    transform: 'translate(-60em, 2em)',
+    // display: buttons ? 'inline' : 'none',
   };
 
   const onHover = () => {
@@ -19,16 +28,23 @@ const MovieListEntry = ({ movie }) => {
   };
 
   const onClick = () => {
+    // setButtons(!buttons);
+    set(movie);
   };
 
   return (
     <div style={style}>
-      <div
+      <img
         onClick={onClick}
         onMouseEnter={onHover}
-        onMouseLeave={onHover}>
-        <img style={styleImg} src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
-      </div>
+        onMouseLeave={onHover}
+        style={styleImg} src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
+      {/* {
+
+        buttons &&
+        <button style={styleButton} type="submit">Recommend</button>
+        // <input style={styleButton} type="submit" value="Similar" />
+      } */}
     </div>
   );
 };

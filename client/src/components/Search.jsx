@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import MovieLists from './movies/MovieLists';
-import { SearchContext, WatchContext } from './Context.jsx';
+import { SearchContext, MenuContext, MovieContext } from './Context.jsx';
 
 const Search = () => {
   const [ query, setQuery ] = useState('');
   const [ watchedList, setWatchedList ] = useState(false);
   const [ watchList, setWatchList ] = useState(false);
+  const [ recList, setRecList ] = useState(false);
+  const [ simList, setSimList ] = useState(false);
+  const [ movie, setMovie ] = useState({});
 
   const toggleOff = () => {
     setWatchedList(false);
     setWatchList(false);
+    setRecList(false);
+    setSimList(false);
+    setMovie({});
   };
 
   const toggleWatchedList = () => {
@@ -20,6 +26,18 @@ const Search = () => {
   const toggleWatchList = () => {
     setWatchList(!watchList);
   };
+
+  const toggleRecList = () => {
+    setRecList(!recList);
+  }
+
+  const toggleSimList = () => {
+    setSimList(!simList);
+  };
+
+  const set = (movie) => {
+    setMovie(movie);
+  }
 
   const style = {
     position: 'sticky',
@@ -66,11 +84,17 @@ const Search = () => {
         <li style={style2} onClick={toggleOff}>
           Home
         </li>
-        <li style={style2} onClick={toggleWatchedList}>
+        {/* <li style={style2} onClick={toggleWatchedList}>
           Watched
         </li>
         <li style={style2} onClick={toggleWatchList}>
           To Watch
+        </li> */}
+        {/* <li style={style2} onClick={toggleRecList}>
+          Recommendations
+        </li> */}
+        <li style={style2} onClick={toggleSimList}>
+          Similar
         </li>
         <li style={styleSearch}>
           <input type="text" onChange={(e) => { text = e.target.value; }} />
@@ -81,11 +105,18 @@ const Search = () => {
             }} value="Search" />
         </li>
       </ul>
-      <WatchContext.Provider value={{ watched: watchedList, watch: watchList, }}>
-        <SearchContext.Provider value={query}>
-          <MovieLists />
-        </SearchContext.Provider>
-      </WatchContext.Provider>
+      <MovieContext.Provider value={movie}>
+        <MenuContext.Provider value={{
+          watched: watchedList,
+          watch: watchList,
+          rec: recList,
+          sim: simList,
+        }}>
+          <SearchContext.Provider value={query}>
+            <MovieLists set={set} />
+          </SearchContext.Provider>
+        </MenuContext.Provider>
+      </MovieContext.Provider>
     </div>
   );
 }
