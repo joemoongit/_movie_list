@@ -1,4 +1,6 @@
-import { LOCAL } from '../config/config';
+if (!process.env.url) {
+  import { LOCAL } from '../config/config';
+}
 
 const tvlists = [
   {

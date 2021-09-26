@@ -3,7 +3,10 @@ import MovieList from './MovieList';
 import { SearchContext, MenuContext } from '../Context';
 import lists from '../../data/data';
 import tvlists from '../../data/datatv';
-import { LOCAL } from '../../config/config';
+
+if (!process.env.url) {
+  import { LOCAL } from '../../config/config';
+}
 
 const MovieLists = ({ set }) => {
   const query = useContext(SearchContext);
