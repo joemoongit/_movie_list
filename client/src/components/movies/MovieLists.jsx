@@ -18,7 +18,7 @@ const MovieLists = ({ set }) => {
           rec && Object.keys(movie).length !== 0 &&
           <MovieList list={{
             id: '100',
-            name: `Recommendations for ${movie.name}:`,
+            name: `Recommendations for ${movie.name || movie.title}:`,
             url: `https://joesmovielist.herokuapp.com/tv/rec/${movie.id}`,
           }}
           set={set} />
@@ -27,7 +27,7 @@ const MovieLists = ({ set }) => {
           sim && Object.keys(movie).length !== 0 &&
           <MovieList list={{
             id: '101',
-            name: `Similar to ${movie.name}:`,
+            name: `Similar to ${movie.name || movie.title}:`,
             url: `https://joesmovielist.herokuapp.com/tv/sim/${movie.id}`,
           }}
           set={set} />
@@ -69,7 +69,7 @@ const MovieLists = ({ set }) => {
           rec && Object.keys(movie).length !== 0 &&
           <MovieList list={{
             id: '100',
-            name: `Recommendations for ${movie.title}:`,
+            name: `Recommendations for ${movie.title || movie.name}:`,
             url: `https://joesmovielist.herokuapp.com/movies/rec/${movie.id}`,
           }}
           set={set} />
@@ -78,7 +78,7 @@ const MovieLists = ({ set }) => {
           sim && Object.keys(movie).length !== 0 &&
           <MovieList list={{
             id: '101',
-            name: `Similar to ${movie.title}:`,
+            name: `Similar to ${movie.title || movie.name}:`,
             url: `https://joesmovielist.herokuapp.com/movies/sim/${movie.id}`,
           }}
           set={set} />
