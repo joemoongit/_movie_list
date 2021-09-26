@@ -61,6 +61,7 @@ const MovieList = ({ list, set }) => {
   };
 
   return (
+    movies.length !== 0 &&
     <div>
       <h4 style={{ marginLeft: '0.5em' }}>{list.name}</h4>
       <div>

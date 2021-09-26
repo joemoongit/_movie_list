@@ -13,11 +13,13 @@ const Search = () => {
   const [ tv, setTv ] = useState(false);
 
   const toggleOff = () => {
+    setQuery('');
     setWatchedList(false);
     setWatchList(false);
     setRecList(false);
     setSimList(false);
     setMovie({});
+    setTv(false);
   };
 
   const toggleWatchedList = () => {
@@ -105,25 +107,31 @@ const Search = () => {
         <li style={style2} onClick={toggleWatchList}>
           To Watch
         </li> */}
-        {/* <li style={style2} onClick={toggleRecList}>
+        <li style={{...style2, color: recList ? 'cyan' : 'white' }} onClick={toggleRecList}>
           Recommendations
-        </li> */}
-        <li style={style2} onClick={toggleSimList}>
+        </li>
+        <li style={{...style2, color: simList ? 'yellow' : 'white' }} onClick={toggleSimList}>
           Similar
         </li>
         <li style={styleSearch}>
           <input type="text" onChange={(e) => { text = e.target.value; }} />
-          <input type="submit" onClick={(e) =>
+          <input
+            type="submit"
+            value="Search"
+            style={{
+              color: query.length ? 'magenta' : 'black',
+            }}
+            onClick={(e) =>
             {
               e.preventDefault();
               setQuery(text);
-            }} value="Search" />
+            }} />
         </li>
-        <li style={style3} onClick={() => setTV(false)} >
-          Movies
-        </li>
-        <li style={style3} onClick={() => setTV(true)} >
+        <li style={{...style3, color: tv ? 'white' : 'gray' }} onClick={() => setTV(true)} >
           TV Shows
+        </li>
+        <li style={{...style3, color: tv ? 'gray' : 'white' }} onClick={() => setTV(false)} >
+          Movies
         </li>
       </ul>
         <MenuContext.Provider value={{

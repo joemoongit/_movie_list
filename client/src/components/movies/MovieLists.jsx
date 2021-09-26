@@ -6,7 +6,7 @@ import tvlists from '../../data/datatv';
 
 const MovieLists = ({ set }) => {
   const query = useContext(SearchContext);
-  const { watched, watch, rec, sim, movie, tv } = useContext(MenuContext);
+  const { watched, watch, rec, sim, movie, tv, } = useContext(MenuContext);
 
   return (
     <div>
@@ -14,15 +14,15 @@ const MovieLists = ({ set }) => {
         tv
         ?
         <>
-        {/* {
+        {
           rec && Object.keys(movie).length !== 0 &&
           <MovieList list={{
             id: '100',
-            name: `Recommendations for ${movie.title}:`,
+            name: `Recommendations for ${movie.name}:`,
             url: `https://api.themoviedb.org/3/tv/${movie.id}/recommendations?api_key=ddf7d5d81b6abe118e7acc02334c1619&language=en-US&page=1`,
           }}
           set={set} />
-        } */}
+        }
         {
           sim && Object.keys(movie).length !== 0 &&
           <MovieList list={{
@@ -65,7 +65,7 @@ const MovieLists = ({ set }) => {
             url: 'https://api.themoviedb.org/3/search/movie?api_key=ddf7d5d81b6abe118e7acc02334c1619&language=en-US&query=pirates&page=1&include_adult=false',
           }} />
         } */}
-        {/* {
+        {
           rec && Object.keys(movie).length !== 0 &&
           <MovieList list={{
             id: '100',
@@ -73,7 +73,7 @@ const MovieLists = ({ set }) => {
             url: `https://api.themoviedb.org/3/movie/${movie.id}/recommendations?api_key=ddf7d5d81b6abe118e7acc02334c1619&language=en-US&page=1`,
           }}
           set={set} />
-        } */}
+        }
         {
           sim && Object.keys(movie).length !== 0 &&
           <MovieList list={{
