@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MovieLists from './movies/MovieLists';
 import { SearchContext, MenuContext } from './Context.jsx';
 
 const Search = () => {
+  const [ text, setText ] = useState('');
   const [ query, setQuery ] = useState('');
   const [ watchedList, setWatchedList ] = useState(false);
   const [ watchList, setWatchList ] = useState(false);
@@ -11,6 +12,10 @@ const Search = () => {
   const [ simList, setSimList ] = useState(false);
   const [ movie, setMovie ] = useState({});
   const [ tv, setTv ] = useState(false);
+
+  useEffect(() => {
+    setText('');
+  }, [ query ]);
 
   const toggleOff = () => {
     setQuery('');
@@ -92,8 +97,6 @@ const Search = () => {
     float: 'left',
   }
 
-  let text = '';
-
   return (
     <div>
       <ul style={style}>
@@ -114,7 +117,7 @@ const Search = () => {
           Similar
         </li>
         <li style={styleSearch}>
-          <input type="text" onChange={(e) => { text = e.target.value; }} />
+          <input type="text" onChange={(e) => { setText(e.target.value) }} value={text} />
           <input
             type="submit"
             value="Search"
