@@ -114,7 +114,7 @@ const Search = () => {
           Similar
         </li>
         <li style={styleSearch}>
-          <input type="text" onChange={(e) => { text = e.target.value; }} value={text} />
+          <input type="text" onChange={(e) => { text = e.target.value; }} />
           <input
             type="submit"
             value="Search"
@@ -125,7 +125,6 @@ const Search = () => {
             {
               e.preventDefault();
               setQuery(text);
-              text = '';
             }} />
         </li>
         <li style={{...style3, color: tv ? 'white' : 'gray' }} onClick={() => setTV(true)} >
