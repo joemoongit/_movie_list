@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const MovieListEntry = ({ movie, set }) => {
-  const [ hover, setHover ] = useState(false);
+  const [hover, setHover] = useState(false);
   // const [ buttons, setButtons ] = useState(false);
 
   const style = {
-    float: 'left',
-    padding: '0.1em',
-    position: 'relative',
+    float: "left",
+    padding: "0.1em",
+    position: "relative",
   };
 
   const styleImg = {
-    width: '10em',
-    filter: hover ? 'contrast(80%)' : 'contrast(100%)',
-    opacity: hover ? '0.7' : '1.0',
-    position: 'relative',
+    width: "10em",
+    filter: hover ? "contrast(80%)" : "contrast(100%)",
+    opacity: hover ? "0.7" : "1.0",
+    position: "relative",
   };
 
   const styleButton = {
-    position: 'absolute',
-    transform: 'translate(-60em, 2em)',
+    position: "absolute",
+    transform: "translate(-60em, 2em)",
     // display: buttons ? 'inline' : 'none',
   };
 
@@ -38,7 +38,9 @@ const MovieListEntry = ({ movie, set }) => {
         onClick={onClick}
         onMouseEnter={onHover}
         onMouseLeave={onHover}
-        style={styleImg} src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
+        style={styleImg}
+        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+      />
       {/* {
 
         buttons &&
