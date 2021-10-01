@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MovieLists from "./movies/MovieLists";
-import { SearchContext, MenuContext } from "./Context.jsx";
+import { SearchContext, MenuContext } from "./Context";
 
 const Search = () => {
-  const [text, setText] = useState("");
-  const [query, setQuery] = useState("");
-  const [watchedList, setWatchedList] = useState(false);
-  const [watchList, setWatchList] = useState(false);
-  const [recList, setRecList] = useState(false);
-  const [simList, setSimList] = useState(false);
-  const [movie, setMovie] = useState({});
-  const [tv, setTv] = useState(false);
+  const [ text, setText ] = useState("");
+  const [ query, setQuery ] = useState("");
+  const [ watchedList, setWatchedList ] = useState(false);
+  const [ watchList, setWatchList ] = useState(false);
+  const [ recList, setRecList ] = useState(false);
+  const [ simList, setSimList ] = useState(false);
+  const [ movie, setMovie ] = useState({});
+  const [ tv, setTv ] = useState(false);
 
   useEffect(() => {
     setText("");
-  }, [query]);
+  }, [ query ]);
 
   const toggleOff = () => {
     setQuery("");
