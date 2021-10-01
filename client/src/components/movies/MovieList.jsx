@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import $ from "jquery";
 import MovieListEntry from "./MovieListEntry";
-import { MenuContext } from './Context';
+import { MenuContext } from '../Context';
 
 const MovieList = ({ list, set }) => {
   const [ movies, setMovies ] = useState([]);
