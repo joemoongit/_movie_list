@@ -18,7 +18,7 @@ const MovieList = ({ list, set }) => {
 
   useEffect(() => {
     read();
-  });
+  }, []);
 
   const scrollLeft = (id) => {
     event.preventDefault();
