@@ -6,7 +6,7 @@ import { MenuContext } from '../Context';
 
 const MovieList = ({ list, set }) => {
   const [ movies, setMovies ] = useState([]);
-  const { movie } = useContext(MenuContext);
+  const { movie, tv } = useContext(MenuContext);
 
   const read = () => {
     const options = {
@@ -20,7 +20,7 @@ const MovieList = ({ list, set }) => {
 
   useEffect(() => {
     read();
-  }, [ movie ]);
+  }, [ movie, tv ]);
 
   const scrollLeft = (id) => {
     event.preventDefault();
