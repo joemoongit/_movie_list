@@ -4,7 +4,7 @@ import $ from "jquery";
 import MovieListEntry from "./MovieListEntry";
 import { MenuContext } from '../Context';
 
-const MovieList = ({ list, set }) => {
+const MovieList = ({ list, set, dynamic }) => {
   const [ movies, setMovies ] = useState([]);
   const { rec, sim, movie, tv } = useContext(MenuContext);
 
@@ -18,9 +18,11 @@ const MovieList = ({ list, set }) => {
       .catch((err) => console.error(err));
   };
 
+  const condition = dynamic ? [ movie, tv ] : [];
+
   useEffect(() => {
     read();
-  }, [ movie, tv ]);
+  }, condition);
 
   const scrollLeft = (id) => {
     event.preventDefault();

@@ -22,6 +22,7 @@ const MovieLists = ({ set }) => {
                 url: `https://joesmovielist.herokuapp.com/tv/rec/${movie.id}`,
               }}
               set={set}
+              dynamic={true}
             />
             :
             <h4 style={{ marginLeft: "0.5em" }}>No Recommendations. Click a on TV Show!</h4>
@@ -37,6 +38,7 @@ const MovieLists = ({ set }) => {
                 url: `https://joesmovielist.herokuapp.com/tv/sim/${movie.id}`,
               }}
               set={set}
+              dynamic={true}
             />
             :
             <h4 style={{ marginLeft: "0.5em" }}>No Similar TV Shows. Click on a TV Show!</h4>
@@ -49,30 +51,15 @@ const MovieLists = ({ set }) => {
                 url: `https://joesmovielist.herokuapp.com/tv/search?query=${query}`,
               }}
               set={set}
+              dynamic={true}
             />
           )}
           {tvlists.map((list) => (
-            <MovieList list={list} key={list.id} set={set} />
+            <MovieList list={list} key={list.id} set={set} dynamic={false} />
           ))}
         </>
       ) : (
         <>
-          {/* {
-          watched &&
-          <MovieList list={{
-            id: '100',
-            name: 'Watched:',
-            url: 'https://api.themoviedb.org/3/search/movie?api_key=ddf7d5d81b6abe118e7acc02334c1619&language=en-US&query=shrek&page=1&include_adult=false',
-          }} />
-        }
-        {
-          watch &&
-          <MovieList list={{
-            id: '101',
-            name: 'To Watch:',
-            url: 'https://api.themoviedb.org/3/search/movie?api_key=ddf7d5d81b6abe118e7acc02334c1619&language=en-US&query=pirates&page=1&include_adult=false',
-          }} />
-        } */}
           {rec && (
             movie.title
             ?
@@ -83,6 +70,7 @@ const MovieLists = ({ set }) => {
                 url: `https://joesmovielist.herokuapp.com/movies/rec/${movie.id}`,
               }}
               set={set}
+              dynamic={true}
             />
             :
             <h4 style={{ marginLeft: "0.5em" }}>No Recommendations. Click a on Movie!</h4>
@@ -97,6 +85,7 @@ const MovieLists = ({ set }) => {
                 url: `https://joesmovielist.herokuapp.com/movies/sim/${movie.id}`,
               }}
               set={set}
+              dynamic={true}
             />
             :
             <h4 style={{ marginLeft: "0.5em" }}>No Similar Movies. Click on a Movie!</h4>
@@ -109,10 +98,11 @@ const MovieLists = ({ set }) => {
                 url: `https://joesmovielist.herokuapp.com/movies/search?query=${query}`,
               }}
               set={set}
+              dynamic={true}
             />
           )}
           {lists.map((list) => (
-            <MovieList list={list} key={list.id} set={set} />
+            <MovieList list={list} key={list.id} set={set} dynamic={false} />
           ))}
         </>
       )}
