@@ -18,7 +18,7 @@ const MovieList = ({ list, set, dynamic }) => {
       .catch((err) => console.error(err));
   };
 
-  const condition = dynamic ? [ movie, tv ] : [];
+  const condition = dynamic ? [ movie, tv ] : [ tv ];
 
   useEffect(() => {
     read();
