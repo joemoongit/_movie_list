@@ -6,7 +6,7 @@ import { MenuContext } from '../Context';
 
 const MovieList = ({ list, set }) => {
   const [ movies, setMovies ] = useState([]);
-  const { movie, tv } = useContext(MenuContext);
+  const { rec, sim, movie, tv } = useContext(MenuContext);
 
   const read = () => {
     const options = {
@@ -68,7 +68,9 @@ const MovieList = ({ list, set }) => {
   };
 
   return (
-    movies.length !== 0 && (
+    movies.length > 0
+    ?
+    (
       <div>
         <h4 style={{ marginLeft: "0.5em" }}>{list.name}</h4>
         <div>
@@ -79,9 +81,11 @@ const MovieList = ({ list, set }) => {
             alt=""
           />
           <div id={`content${list.id}`} style={style}>
-            {movies.map((movie) => (
-              <MovieListEntry movie={movie} key={movie.id} set={set} />
-            ))}
+            {
+              movies.map((movie) => (
+                <MovieListEntry movie={movie} key={movie.id} set={set} />
+              ))
+            }
           </div>
           <img
             onClick={() => scrollRight(list.id)}
@@ -92,6 +96,24 @@ const MovieList = ({ list, set }) => {
         </div>
       </div>
     )
+    :
+    tv && rec
+    ?
+    <h4 style={{ marginLeft: "0.5em" }}>No Recommendations for {movie.name || movie.title}</h4>
+    :
+    tv && sim
+    ?
+    <h4 style={{ marginLeft: "0.5em" }}>No Similar TV Shows for {movie.name || movie.title}</h4>
+    :
+    !tv && rec
+    ?
+    <h4 style={{ marginLeft: "0.5em" }}>No Recommendations for {movie.title || movie.name}</h4>
+    :
+    !tv && sim
+    ?
+    <h4 style={{ marginLeft: "0.5em" }}>No Similar Movies for {movie.title || movie.name}</h4>
+    :
+    null
   );
 };
 
