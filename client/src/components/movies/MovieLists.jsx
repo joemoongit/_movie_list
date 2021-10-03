@@ -23,6 +23,7 @@ const MovieLists = ({ set }) => {
               }}
               set={set}
               dynamic={true}
+              search={false}
             />
             :
             <h4 style={{ marginLeft: "0.5em" }}>No Recommendations. Click a on TV Show!</h4>
@@ -39,6 +40,7 @@ const MovieLists = ({ set }) => {
               }}
               set={set}
               dynamic={true}
+              search={false}
             />
             :
             <h4 style={{ marginLeft: "0.5em" }}>No Similar TV Shows. Click on a TV Show!</h4>
@@ -52,10 +54,11 @@ const MovieLists = ({ set }) => {
               }}
               set={set}
               dynamic={true}
+              search={true}
             />
           )}
           {tvlists.map((list) => (
-            <MovieList list={list} key={list.id} set={set} dynamic={false} />
+            <MovieList list={list} key={list.id} set={set} dynamic={false} search={false} />
           ))}
         </>
       ) : (
@@ -71,6 +74,7 @@ const MovieLists = ({ set }) => {
               }}
               set={set}
               dynamic={true}
+              search={false}
             />
             :
             <h4 style={{ marginLeft: "0.5em" }}>No Recommendations. Click a on Movie!</h4>
@@ -86,6 +90,7 @@ const MovieLists = ({ set }) => {
               }}
               set={set}
               dynamic={true}
+              search={false}
             />
             :
             <h4 style={{ marginLeft: "0.5em" }}>No Similar Movies. Click on a Movie!</h4>
@@ -99,10 +104,11 @@ const MovieLists = ({ set }) => {
               }}
               set={set}
               dynamic={true}
+              search={true}
             />
           )}
           {lists.map((list) => (
-            <MovieList list={list} key={list.id} set={set} dynamic={false} />
+            <MovieList list={list} key={list.id} set={set} dynamic={false} search={false} />
           ))}
         </>
       )}

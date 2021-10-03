@@ -2,10 +2,11 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import $ from "jquery";
 import MovieListEntry from "./MovieListEntry";
-import { MenuContext } from '../Context';
+import { SearchContext, MenuContext } from '../Context';
 
-const MovieList = ({ list, set, dynamic }) => {
+const MovieList = ({ list, set, dynamic, search }) => {
   const [ movies, setMovies ] = useState([]);
+  const query = useContext(SearchContext);
   const { rec, sim, movie, tv } = useContext(MenuContext);
 
   const read = () => {
@@ -18,7 +19,7 @@ const MovieList = ({ list, set, dynamic }) => {
       .catch((err) => console.error(err));
   };
 
-  const condition = dynamic ? [ movie, tv ] : [ tv ];
+  const condition = search && dynamic ? [ query, movie, tv ] : dynamic ? [ movie, tv ] : [ tv ];
 
   useEffect(() => {
     read();
