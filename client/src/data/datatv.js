@@ -7,7 +7,7 @@ const tvlists = [
   {
     id: 2,
     name: "Latest TV Shows:",
-    url: `https://joesmovielist.herokuapp.com/tv/today`,
+    url: `https://joesmovielist.herokuapp.com/tv/latest`,
   },
   {
     id: 3,
