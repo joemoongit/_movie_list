@@ -64,7 +64,8 @@ const Search = () => {
   };
 
   const style2 = {
-    display: "inline-block",
+    display: 'flex',
+    // display: "inline-block",
     float: "left",
     margin: "0.5em",
     padding: "0.15em",
@@ -74,7 +75,8 @@ const Search = () => {
   };
 
   const style3 = {
-    display: "inline-block",
+    display: 'flex',
+    // display: "inline-block",
     float: "right",
     margin: "0.5em",
     padding: "0.15em",
@@ -84,15 +86,18 @@ const Search = () => {
   };
 
   const styleSearch = {
-    display: "inline-block",
+    display: 'flex',
+    //display: "inline-block",
+    float:"right",
     margin: "0.15em",
     padding: "0.15em",
     position: "relative",
-    top: "50%",
+    top: "64%",
     transform: "translateY(-50%)",
   };
 
   const styleImg = {
+    display: 'flex',
     width: "3em",
     float: "left",
   };
@@ -122,6 +127,18 @@ const Search = () => {
         >
           Similar
         </li>
+        <li
+          style={{ ...style3, color: tv ? "white" : "gray" }}
+          onClick={() => setTV(true)}
+        >
+          TV Shows
+        </li>
+        <li
+          style={{ ...style3, color: tv ? "gray" : "white" }}
+          onClick={() => setTV(false)}
+        >
+          Movies
+        </li>
         <li style={styleSearch}>
           <input
             type="text"
@@ -141,18 +158,6 @@ const Search = () => {
               setQuery(text);
             }}
           />
-        </li>
-        <li
-          style={{ ...style3, color: tv ? "white" : "gray" }}
-          onClick={() => setTV(true)}
-        >
-          TV Shows
-        </li>
-        <li
-          style={{ ...style3, color: tv ? "gray" : "white" }}
-          onClick={() => setTV(false)}
-        >
-          Movies
         </li>
       </ul>
       <MenuContext.Provider
