@@ -57,6 +57,10 @@ const Search = () => {
     setTv(bool);
   };
 
+  const setLoginParent = (bool) => {
+    setLogin(bool);
+  }
+
   const style = {
     position: 'sticky',
     top: '0',
@@ -163,7 +167,7 @@ const Search = () => {
           />
         </li>
       </ul>
-      { login && <Login /> }
+      { login && <Login setLoginParent={setLoginParent} /> }
       <MenuContext.Provider
         value={{
           watched: watchedList,

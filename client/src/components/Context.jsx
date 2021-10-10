@@ -11,4 +11,5 @@ export const MenuContext = createContext({
   sim: false,
   movie: {},
   tv: false,
+  login: false,
 });
