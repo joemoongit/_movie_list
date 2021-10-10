@@ -1,17 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
-import $ from "jquery";
-import MovieListEntry from "./MovieListEntry";
+import React, { useState, useEffect, useContext } from 'react';
+import axios from 'axios';
+import $ from 'jquery';
+import MovieListEntry from './MovieListEntry';
 import { SearchContext, MenuContext } from '../Context';
 
-const MovieList = ({ list, set, dynamic, search }) => {
-  const [ movies, setMovies ] = useState([]);
+const MovieList = ({
+  list, set, dynamic, search
+}) => {
+  const [movies, setMovies] = useState([]);
   const query = useContext(SearchContext);
-  const { rec, sim, movie, tv } = useContext(MenuContext);
+  const {
+    rec, sim, movie, tv,
+  } = useContext(MenuContext);
 
   const read = () => {
     const options = {
-      method: "get",
+      method: 'get',
       url: list.url,
     };
     axios(options)
@@ -19,55 +23,53 @@ const MovieList = ({ list, set, dynamic, search }) => {
       .catch((err) => console.error(err));
   };
 
-  const condition = search && dynamic ? [ query, movie, tv ] : dynamic ? [ movie, tv ] : [ tv ];
+  const condition = search && dynamic ? [query, movie, tv] : dynamic ? [movie, tv] : [tv];
 
   useEffect(() => {
     read();
   }, condition);
 
   const scrollLeft = (id) => {
-    event.preventDefault();
     $(`#content${id}`).animate(
       {
-        scrollLeft: "-=490",
+        scrollLeft: '-=490',
       },
-      "slow"
+      'slow',
     );
   };
 
   const scrollRight = (id) => {
-    event.preventDefault();
     $(`#content${id}`).animate(
       {
-        scrollLeft: "+=490",
+        scrollLeft: '+=490',
       },
-      "slow"
+      'slow',
     );
   };
 
   const style = {
-    display: "flex",
-    margin: "0.5em",
-    overflowX: "hidden",
-    zIndex: "0",
+    display: 'flex',
+    margin: '0.5em',
+    overflowX: 'hidden',
+    zIndex: '0',
   };
 
   const style2 = {
-    float: "left",
-    zIndex: "1",
-    width: "1em",
-    position: "relative",
-    top: "50%",
-    transform: "translateY(700%)",
+    float: 'left',
+    zIndex: '1',
+    width: '1em',
+    position: 'relative',
+    top: '50%',
+    transform: 'translateY(700%)',
   };
 
   const style3 = {
-    float: "right",
-    zIndex: "1",
-    width: "1em",
-    position: "relative",
-    top: "50%",
-    transform: "translateY(-900%)",
+    float: 'right',
+    zIndex: '1',
+    width: '1em',
+    position: 'relative',
+    top: '50%',
+    transform: 'translateY(-900%)',
   };
 
   return (

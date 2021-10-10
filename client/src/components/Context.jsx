@@ -1,7 +1,7 @@
-import React, { createContext } from "react";
+import { createContext } from 'react';
 
 export const SearchContext = createContext({
-  query: "",
+  query: '',
 });
 
 export const MenuContext = createContext({

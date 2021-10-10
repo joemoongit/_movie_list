@@ -1,30 +1,32 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import MovieLists from "./movies/MovieLists";
-import { SearchContext, MenuContext } from "./Context";
+import React, { useState, useEffect } from 'react';
+import Login from './login/Login';
+import MovieLists from './movies/MovieLists';
+import { SearchContext, MenuContext } from './Context';
 
 const Search = () => {
-  const [ text, setText ] = useState("");
-  const [ query, setQuery ] = useState("");
-  const [ watchedList, setWatchedList ] = useState(false);
-  const [ watchList, setWatchList ] = useState(false);
-  const [ recList, setRecList ] = useState(false);
-  const [ simList, setSimList ] = useState(false);
-  const [ movie, setMovie ] = useState({});
-  const [ tv, setTv ] = useState(false);
+  const [text, setText] = useState('');
+  const [query, setQuery] = useState('');
+  const [watchedList, setWatchedList] = useState(false);
+  const [watchList, setWatchList] = useState(false);
+  const [recList, setRecList] = useState(false);
+  const [simList, setSimList] = useState(false);
+  const [movie, setMovie] = useState({});
+  const [tv, setTv] = useState(false);
+  const [login, setLogin] = useState(false);
 
   useEffect(() => {
-    setText("");
-  }, [ query ]);
+    setText('');
+  }, [query]);
 
   const toggleOff = () => {
-    setQuery("");
+    setQuery('');
     setWatchedList(false);
     setWatchList(false);
     setRecList(false);
     setSimList(false);
     setMovie({});
     setTv(false);
+    setLogin(false);
   };
 
   const toggleWatchedList = () => {
@@ -43,8 +45,12 @@ const Search = () => {
     setSimList(!simList);
   };
 
-  const set = (movie) => {
-    setMovie(movie);
+  const toggleLogin = () => {
+    setLogin(!login);
+  };
+
+  const set = (m) => {
+    setMovie(m);
   };
 
   const setTV = (bool) => {
@@ -52,60 +58,57 @@ const Search = () => {
   };
 
   const style = {
-    position: "sticky",
-    top: "0",
-    listStyleType: "none",
-    backgroundColor: "rgb(20,20,20)",
-    padding: "0",
-    margin: "0",
-    zIndex: "2",
-    textAlign: "center",
-    height: "3em",
+    position: 'sticky',
+    top: '0',
+    listStyleType: 'none',
+    backgroundColor: 'rgb(20,20,20)',
+    padding: '0',
+    margin: '0',
+    zIndex: '2',
+    textAlign: 'center',
+    height: '3em',
   };
 
   const style2 = {
     display: 'flex',
-    // display: "inline-block",
-    float: "left",
-    margin: "0.5em",
-    padding: "0.15em",
-    position: "relative",
-    top: "50%",
-    transform: "translateY(-50%)",
+    float: 'left',
+    margin: '0.5em',
+    padding: '0.15em',
+    position: 'relative',
+    top: '50%',
+    transform: 'translateY(-50%)',
   };
 
   const style3 = {
     display: 'flex',
-    // display: "inline-block",
-    float: "right",
-    margin: "0.5em",
-    padding: "0.15em",
-    position: "relative",
-    top: "50%",
-    transform: "translateY(-50%)",
+    float: 'right',
+    margin: '0.5em',
+    padding: '0.15em',
+    position: 'relative',
+    top: '50%',
+    transform: 'translateY(-50%)',
   };
 
   const styleSearch = {
     display: 'flex',
-    //display: "inline-block",
-    float:"right",
-    margin: "0.15em",
-    padding: "0.15em",
-    position: "relative",
-    top: "64%",
-    transform: "translateY(-50%)",
+    float: 'right',
+    margin: '0.15em',
+    padding: '0.15em',
+    position: 'relative',
+    top: '64%',
+    transform: 'translateY(-50%)',
   };
 
   const styleImg = {
     display: 'flex',
-    width: "3em",
-    float: "left",
+    width: '3em',
+    float: 'left',
   };
 
   return (
     <div>
       <ul style={style}>
-        <img style={styleImg} src="images/popcorn.png" alt="" />
+        <img style={styleImg} src="images/popcorn.png" alt="Popcorn" onClick={toggleLogin} />
         <li style={style2} onClick={toggleOff}>
           Home
         </li>
@@ -116,25 +119,25 @@ const Search = () => {
           To Watch
         </li> */}
         <li
-          style={{ ...style2, color: recList ? "cyan" : "white" }}
+          style={{ ...style2, color: recList ? 'cyan' : 'white' }}
           onClick={toggleRecList}
         >
           Recommendations
         </li>
         <li
-          style={{ ...style2, color: simList ? "yellow" : "white" }}
+          style={{ ...style2, color: simList ? 'yellow' : 'white' }}
           onClick={toggleSimList}
         >
           Similar
         </li>
         <li
-          style={{ ...style3, color: tv ? "white" : "gray" }}
+          style={{ ...style3, color: tv ? 'white' : 'gray' }}
           onClick={() => setTV(true)}
         >
           TV Shows
         </li>
         <li
-          style={{ ...style3, color: tv ? "gray" : "white" }}
+          style={{ ...style3, color: tv ? 'gray' : 'white' }}
           onClick={() => setTV(false)}
         >
           Movies
@@ -151,7 +154,7 @@ const Search = () => {
             type="submit"
             value="Search"
             style={{
-              color: query.length ? "magenta" : "black",
+              color: query.length ? 'magenta' : 'black',
             }}
             onClick={(e) => {
               e.preventDefault();
@@ -160,14 +163,16 @@ const Search = () => {
           />
         </li>
       </ul>
+      { login && <Login /> }
       <MenuContext.Provider
         value={{
           watched: watchedList,
           watch: watchList,
           rec: recList,
           sim: simList,
-          movie: movie,
-          tv: tv,
+          movie,
+          tv,
+          login,
         }}
       >
         <SearchContext.Provider value={query}>
