@@ -2,22 +2,22 @@ const tvlists = [
   {
     id: 1,
     name: "TV Shows Airing Today:",
-    url: `http://localhost:3000/tv/today`,
+    url: `http://joesmovielist.herokuapp.com/tv/today`,
   },
   {
     id: 2,
     name: "Latest TV Shows:",
-    url: `http://localhost:3000/tv/latest`,
+    url: `http://joesmovielist.herokuapp.com/tv/latest`,
   },
   {
     id: 3,
     name: "Popular TV Shows:",
-    url: `http://localhost:3000/tv/popular`,
+    url: `http://joesmovielist.herokuapp.com/tv/popular`,
   },
   {
     id: 4,
     name: "Top Rated TV Shows",
-    url: `http://localhost:3000/tv/top`,
+    url: `http://joesmovielist.herokuapp.com/tv/top`,
   },
 ];
 

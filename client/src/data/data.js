@@ -2,37 +2,37 @@ export const lists = [
   {
     id: 1,
     name: "Trending today:",
-    url: `http://localhost:3000/movies/today`,
+    url: `http://joesmovielist.herokuapp.com/movies/today`,
   },
   {
     id: 2,
     name: "Trending this week:",
-    url: `http://localhost:3000/movies/week`,
+    url: `http://joesmovielist.herokuapp.com/movies/week`,
   },
   {
     id: 3,
     name: "Popular movies:",
-    url: `http://localhost:3000/movies/popular`,
+    url: `http://joesmovielist.herokuapp.com/movies/popular`,
   },
   {
     id: 4,
     name: "Top rated:",
-    url: `http://localhost:3000/movies/top`,
+    url: `http://joesmovielist.herokuapp.com/movies/top`,
   },
   {
     id: 5,
     name: "Now playing:",
-    url: `http://localhost:3000/movies/now`,
+    url: `http://joesmovielist.herokuapp.com/movies/now`,
   },
   {
     id: 6,
     name: "Upcoming:",
-    url: `http://localhost:3000/movies/upcoming`,
+    url: `http://joesmovielist.herokuapp.com/movies/upcoming`,
   },
   {
     id: 7,
     name: "Trending:",
-    url: `http://localhost:3000/movies/trending`,
+    url: `http://joesmovielist.herokuapp.com/movies/trending`,
   },
 ];
 
