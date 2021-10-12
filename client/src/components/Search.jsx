@@ -115,12 +115,17 @@ const Search = () => {
     display: 'flex',
     width: '3em',
     float: 'left',
+    cursor: hover ? 'pointer' : 'notAllowed',
   };
 
   return (
     <div>
       <ul style={style}>
-        <img style={styleImg} src="images/popcorn.png" alt="Popcorn" onClick={toggleLogin} />
+        <img style={styleImg} src="images/popcorn.png" alt="Popcorn"
+          onClick={toggleLogin}
+          onMouseEnter={onHover}
+          onMouseLeave={onHover}
+        />
         <li style={style2}
           onClick={toggleOff}
           onMouseEnter={onHover}

@@ -1,8 +1,14 @@
 import React, { useState, useContext } from 'react';
 
 // import * as firebaseui from 'firebaseui';
-import firebase from 'firebase/app';
-import 'firebaseui/dist/firebaseui.css';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
+
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+// import 'firebaseui/dist/firebaseui.css';
+
 import { MenuContext } from '../Context';
 
 const Login = ({ setLoginParent }) => {
@@ -42,16 +48,36 @@ const Login = ({ setLoginParent }) => {
     color: 'black',
   };
 
+  const styleImg = {
+    width: '3em',
+  };
+
   const onHover = () => {
     setHover(!hover);
   };
 
-  const uiConfig = {
+  firebase.initializeApp({
+    apiKey: 'AIzaSyCiUZTNXnWCQ9dZNv31-umWmLT7xERGXGQ',
+    authDomain: 'movielist-c571a.firebaseapp.com',
+    projectId: 'movielist-c571a',
+    storageBucket: 'movielist-c571a.appspot.com',
+    messagingSenderId: '835979508747',
+    appId: '1:835979508747:web:b1c5d762433bf147131b0e',
+    measurementId: 'G-684R50TQXS',
+  });
 
+  const auth = firebase.auth();
+  const firestore = firebase.firestore();
+
+  const signInWithGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider);
   };
 
+  const [user] = useAuthState(auth);
+
   return (
-    <div style={styleModal}>
+    <div style={styleModal} id="firebaseui-auth-container">
       <div style={styleContent}>
         <span autoFocus
           onMouseEnter={onHover}
@@ -61,8 +87,27 @@ const Login = ({ setLoginParent }) => {
         >
           &times;
         </span>
-        <p style={styleText}>Congrats! You found my Login modal. Will be using firebase to authenticate users</p>
-        <p style={styleText}>Stay tuned!</p>
+        {
+          user ?
+          <div>
+            <span>
+              <img style={styleImg} src={user._delegate.photoURL} alt="Profile Picture" />
+              <p style={styleText}>Welcome {user._delegate.displayName}!</p>
+            </span>
+            <br />
+            {
+              auth.currentUser && (
+                <button onClick={() => auth.signOut()}>Sign Out</button>
+              )
+            }
+          </div>
+          :
+          <div>
+            <p style={styleText}>Congrats! You found my Login modal. Uses firebase to authenticate users</p>
+            <button onClick={signInWithGoogle}>Sign in with Google</button>
+          </div>
+        }
+
       </div>
     </div>
   );
