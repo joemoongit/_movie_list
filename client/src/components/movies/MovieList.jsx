@@ -12,6 +12,7 @@ const MovieList = ({
   const {
     rec, sim, movie, tv,
   } = useContext(MenuContext);
+  const [hover, setHover] = useState(false);
 
   const read = () => {
     const options = {
@@ -28,6 +29,10 @@ const MovieList = ({
   useEffect(() => {
     read();
   }, condition);
+
+  const onHover = () => {
+    setHover(!hover);
+  };
 
   const scrollLeft = (id) => {
     $(`#content${id}`).animate(
@@ -61,6 +66,7 @@ const MovieList = ({
     position: 'relative',
     top: '50%',
     transform: 'translateY(700%)',
+    cursor: hover ? 'pointer' : 'notAllowed',
   };
 
   const style3 = {
@@ -70,6 +76,7 @@ const MovieList = ({
     position: 'relative',
     top: '50%',
     transform: 'translateY(-900%)',
+    cursor: hover ? 'pointer' : 'notAllowed',
   };
 
   return (
@@ -80,10 +87,12 @@ const MovieList = ({
         <h4 style={{ marginLeft: "0.5em" }}>{list.name}</h4>
         <div>
           <img
+            onMouseEnter={onHover}
+            onMouseLeave={onHover}
             onClick={() => scrollLeft(list.id)}
             style={style2}
             src="./images/left.png"
-            alt=""
+            alt="Left Arrow"
           />
           <div id={`content${list.id}`} style={style}>
             {
@@ -93,10 +102,12 @@ const MovieList = ({
             }
           </div>
           <img
+            onMouseEnter={onHover}
+            onMouseLeave={onHover}
             onClick={() => scrollRight(list.id)}
             style={style3}
             src="./images/right.png"
-            alt=""
+            alt="Right Arrow"
           />
         </div>
       </div>
