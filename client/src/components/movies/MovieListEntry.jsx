@@ -14,6 +14,7 @@ const MovieListEntry = ({ movie, set }) => {
     width: '10em',
     filter: hover ? 'contrast(80%)' : 'contrast(100%)',
     opacity: hover ? '0.7' : '1.0',
+    cursor: hover ? 'pointer' : 'notAllowed',
     position: 'relative',
   };
 
