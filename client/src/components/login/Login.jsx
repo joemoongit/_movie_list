@@ -14,6 +14,8 @@ import { MenuContext } from '../Context';
 const Login = ({ setLoginParent }) => {
   const { login } = useContext(MenuContext);
   const [hover, setHover] = useState(false);
+  const [hoverSignOut, setHoverSignOut] = useState(false);
+  const [hoverGoogle, setHoverGoogle] = useState(false);
 
   const styleModal = {
     display: login ? 'none' : 'block',
@@ -54,6 +56,14 @@ const Login = ({ setLoginParent }) => {
 
   const onHover = () => {
     setHover(!hover);
+  };
+
+  const onHoverSignOut = () => {
+    setHoverSignOut(!hoverSignOut);
+  };
+
+  const onHoverGoogle = () => {
+    setHoverGoogle(!hoverGoogle);
   };
 
   firebase.initializeApp({
@@ -97,14 +107,46 @@ const Login = ({ setLoginParent }) => {
             <br />
             {
               auth.currentUser && (
-                <button onClick={() => auth.signOut()}>Sign Out</button>
+                <button
+                  style={{
+                    cursor: hoverSignOut ? 'pointer' : 'notAllowed',
+                  }}
+                  onMouseEnter={onHoverSignOut}
+                  onMouseLeave={onHoverSignOut}
+                  onClick={() => auth.signOut()}>Sign Out</button>
               )
             }
           </div>
           :
           <div>
             <p style={styleText}>Congrats! You found my Login modal. Uses firebase to authenticate users</p>
-            <button onClick={signInWithGoogle}>Sign in with Google</button>
+            <button
+              style={{
+                backgroundColor: "#ffffff",
+                cursor: hoverGoogle ? 'pointer' : 'notAllowed',
+              }}
+              onMouseEnter={onHoverGoogle}
+              onMouseLeave={onHoverGoogle}
+              onClick={signInWithGoogle}>
+                <span style={{
+                  float: 'left',
+                }}>
+                  <img
+                    style={{
+                      float: 'left',
+                      width: '1em',
+                      padding: '0.5em',
+                    }}
+                    src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" />
+                  <p
+                    style={{
+                      float: 'left',
+                      margin: '0',
+                      padding: '0.5em',
+                    }}
+                  >Sign in with Google</p>
+                </span>
+            </button>
           </div>
         }
 
