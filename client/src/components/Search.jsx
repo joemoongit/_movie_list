@@ -13,6 +13,7 @@ const Search = () => {
   const [movie, setMovie] = useState({});
   const [tv, setTv] = useState(false);
   const [login, setLogin] = useState(false);
+  const [hover, setHover] = useState(false);
 
   useEffect(() => {
     setText('');
@@ -27,6 +28,7 @@ const Search = () => {
     setMovie({});
     setTv(false);
     setLogin(false);
+    setHover(false);
   };
 
   const toggleWatchedList = () => {
@@ -49,6 +51,10 @@ const Search = () => {
     setLogin(!login);
   };
 
+  const onHover = () => {
+    setHover(!hover);
+  };
+
   const set = (m) => {
     setMovie(m);
   };
@@ -59,7 +65,7 @@ const Search = () => {
 
   const setLoginParent = (bool) => {
     setLogin(bool);
-  }
+  };
 
   const style = {
     position: 'sticky',
@@ -81,6 +87,7 @@ const Search = () => {
     position: 'relative',
     top: '50%',
     transform: 'translateY(-50%)',
+    cursor: hover ? 'pointer' : 'notAllowed',
   };
 
   const style3 = {
@@ -91,6 +98,7 @@ const Search = () => {
     position: 'relative',
     top: '50%',
     transform: 'translateY(-50%)',
+    cursor: hover ? 'pointer' : 'notAllowed',
   };
 
   const styleSearch = {
@@ -113,7 +121,11 @@ const Search = () => {
     <div>
       <ul style={style}>
         <img style={styleImg} src="images/popcorn.png" alt="Popcorn" onClick={toggleLogin} />
-        <li style={style2} onClick={toggleOff}>
+        <li style={style2}
+          onClick={toggleOff}
+          onMouseEnter={onHover}
+          onMouseLeave={onHover}
+        >
           Home
         </li>
         {/* <li style={style2} onClick={toggleWatchedList}>
@@ -125,24 +137,32 @@ const Search = () => {
         <li
           style={{ ...style2, color: recList ? 'cyan' : 'white' }}
           onClick={toggleRecList}
+          onMouseEnter={onHover}
+          onMouseLeave={onHover}
         >
           Recommendations
         </li>
         <li
           style={{ ...style2, color: simList ? 'yellow' : 'white' }}
           onClick={toggleSimList}
+          onMouseEnter={onHover}
+          onMouseLeave={onHover}
         >
           Similar
         </li>
         <li
           style={{ ...style3, color: tv ? 'white' : 'gray' }}
           onClick={() => setTV(true)}
+          onMouseEnter={onHover}
+          onMouseLeave={onHover}
         >
           TV Shows
         </li>
         <li
           style={{ ...style3, color: tv ? 'gray' : 'white' }}
           onClick={() => setTV(false)}
+          onMouseEnter={onHover}
+          onMouseLeave={onHover}
         >
           Movies
         </li>
