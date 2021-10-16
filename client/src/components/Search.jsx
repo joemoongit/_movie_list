@@ -3,6 +3,12 @@ import Login from './login/Login';
 import MovieLists from './movies/MovieLists';
 import { SearchContext, MenuContext } from './Context';
 
+
+// import * as firebaseui from 'firebaseui';
+import firebase from 'firebase/compat/app';
+
+import { useAuthState } from 'react-firebase-hooks/auth';
+
 const Search = () => {
   const [text, setText] = useState('');
   const [query, setQuery] = useState('');
@@ -14,6 +20,12 @@ const Search = () => {
   const [tv, setTv] = useState(false);
   const [login, setLogin] = useState(false);
   const [hover, setHover] = useState(false);
+
+  console.log('world');
+
+  const auth = firebase.auth();
+
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
     setText('');
@@ -133,12 +145,17 @@ const Search = () => {
         >
           Home
         </li>
-        {/* <li style={style2} onClick={toggleWatchedList}>
-          Watched
-        </li>
-        <li style={style2} onClick={toggleWatchList}>
-          To Watch
-        </li> */}
+        {
+          user &&
+          <>
+          <li style={style2} onClick={toggleWatchedList}>
+            Watched
+          </li>
+          <li style={style2} onClick={toggleWatchList}>
+            To Watch
+          </li>
+          </>
+        }
         <li
           style={{ ...style2, color: recList ? 'cyan' : 'white' }}
           onClick={toggleRecList}
