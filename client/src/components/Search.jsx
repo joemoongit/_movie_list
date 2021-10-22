@@ -145,17 +145,6 @@ const Search = () => {
         >
           Home
         </li>
-        {
-          user &&
-          <>
-          <li style={style2} onClick={toggleWatchedList}>
-            Watched
-          </li>
-          <li style={style2} onClick={toggleWatchList}>
-            To Watch
-          </li>
-          </>
-        }
         <li
           style={{ ...style2, color: recList ? 'cyan' : 'white' }}
           onClick={toggleRecList}
@@ -172,6 +161,17 @@ const Search = () => {
         >
           Similar
         </li>
+        {
+          user &&
+          <>
+          <li style={style2} onClick={toggleWatchedList}>
+            Watched
+          </li>
+          <li style={style2} onClick={toggleWatchList}>
+            To Watch
+          </li>
+          </>
+        }
         <li
           style={{ ...style3, color: tv ? 'white' : 'gray' }}
           onClick={() => setTV(true)}
