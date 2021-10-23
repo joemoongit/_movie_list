@@ -109,7 +109,7 @@ const Login = ({ setLoginParent }) => {
           </div>
           :
           <div>
-            <p style={styleText}>Congrats! You found my Login modal. Uses firebase to authenticate users</p>
+            <p style={styleText}>Login</p>
             <button
               style={{
                 backgroundColor: "#ffffff",
