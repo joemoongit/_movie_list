@@ -13,8 +13,6 @@ const App = () => {
     measurementId: 'G-684R50TQXS',
   });
 
-  console.log('hello');
-
   return (
     <div>
       <Search />

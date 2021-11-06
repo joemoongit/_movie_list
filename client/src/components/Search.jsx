@@ -3,7 +3,6 @@ import Login from './login/Login';
 import MovieLists from './movies/MovieLists';
 import { SearchContext, MenuContext } from './Context';
 
-
 // import * as firebaseui from 'firebaseui';
 import firebase from 'firebase/compat/app';
 
@@ -20,8 +19,6 @@ const Search = () => {
   const [tv, setTv] = useState(false);
   const [login, setLogin] = useState(false);
   const [hover, setHover] = useState(false);
-
-  console.log('world');
 
   const auth = firebase.auth();
 
