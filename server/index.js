@@ -10,16 +10,6 @@ app.use(express.json());
 
 app.use(cors());
 
-if (process.env.NODE_ENV === 'production') {
-  app.get('*', (req, res, next) => {
-    if (req.header('x-forwarded-proto') !== 'https') {
-      res.redirect(`https://${req.header('host')}${req.url}`);
-    } else {
-      next();
-    }
-  });
-}
-
 const movies = require('./routes/movies');
 const tv = require('./routes/tv');
 
