@@ -7,7 +7,7 @@ import tvlists from '../../data/datatv';
 const MovieLists = ({ set }) => {
   const query = useContext(SearchContext);
   const {
-    watched, watch, rec, sim, movie, tv,
+    rec, sim, movie, tv,
   } = useContext(MenuContext);
 
   return (
@@ -65,22 +65,6 @@ const MovieLists = ({ set }) => {
         </>
       ) : (
         <>
-          {/* {
-          watched &&
-          <MovieList list={{
-            id: '100',
-            name: 'Watched:',
-            url: 'https://api.themoviedb.org/3/search/movie?api_key=&language=en-US&query=shrek&page=1&include_adult=false',
-          }} />
-        }
-        {
-          watch &&
-          <MovieList list={{
-            id: '101',
-            name: 'To Watch:',
-            url: 'https://api.themoviedb.org/3/search/movie?api_key=&language=en-US&query=pirates&page=1&include_adult=false',
-          }} />
-        } */}
           {rec && (
             movie.title
             ?
