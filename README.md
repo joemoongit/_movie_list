@@ -10,10 +10,12 @@
 npm install
 ```
 
-3. Run
+3. Rename the .env.example file to .env located in the project's root directory and add your api key from https://www.themoviedb.org/
+
+4. Run
    
 ```
 npm run dev
 ```
 
-4. Navigate to localhost:3000 in the browser
+5. Navigate to localhost:3000 in the browser
