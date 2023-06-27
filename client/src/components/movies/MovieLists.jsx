@@ -21,7 +21,7 @@ const MovieLists = ({ set }) => {
               list={{
                 id: '100',
                 name: `Recommendations for ${movie.name || movie.title}:`,
-                url: `https://joesmovielist.herokuapp.com/tv/rec/${movie.id}`,
+                url: `http://localhost:3000/tv/rec/${movie.id}`,
               }}
               set={set}
               dynamic={true}
@@ -38,7 +38,7 @@ const MovieLists = ({ set }) => {
               list={{
                 id: '101',
                 name: `Similar to ${movie.name || movie.title}:`,
-                url: `https://joesmovielist.herokuapp.com/tv/sim/${movie.id}`,
+                url: `http://localhost:3000/tv/sim/${movie.id}`,
               }}
               set={set}
               dynamic={true}
@@ -52,7 +52,7 @@ const MovieLists = ({ set }) => {
               list={{
                 id: '0',
                 name: 'Search Results:',
-                url: `https://joesmovielist.herokuapp.com/tv/search?query=${query}`,
+                url: `http://localhost:3000/tv/search?query=${query}`,
               }}
               set={set}
               dynamic={true}
@@ -88,7 +88,7 @@ const MovieLists = ({ set }) => {
               list={{
                 id: '100',
                 name: `Recommendations for ${movie.title || movie.name}:`,
-                url: `https://joesmovielist.herokuapp.com/movies/rec/${movie.id}`,
+                url: `http://localhost:3000/movies/rec/${movie.id}`,
               }}
               set={set}
               dynamic={true}
@@ -104,7 +104,7 @@ const MovieLists = ({ set }) => {
               list={{
                 id: '101',
                 name: `Similar to ${movie.title || movie.name}:`,
-                url: `https://joesmovielist.herokuapp.com/movies/sim/${movie.id}`,
+                url: `http://localhost:3000/movies/sim/${movie.id}`,
               }}
               set={set}
               dynamic={true}
@@ -118,7 +118,7 @@ const MovieLists = ({ set }) => {
               list={{
                 id: '0',
                 name: 'Search Results:',
-                url: `https://joesmovielist.herokuapp.com/movies/search?query=${query}`,
+                url: `http://localhost:3000/movies/search?query=${query}`,
               }}
               set={set}
               dynamic={true}
